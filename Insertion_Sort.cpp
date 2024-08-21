@@ -1,69 +1,75 @@
 #include <iostream>
 using namespace std;
-class Sorter
+class Poly
 {
-   int ar[10],i,j,size,temp;
-   public:
-   void accept();
-   void display();
-   int pos();
-   void sort();
+	int i,size,size2,limit,a[10],b[10],sum[10],flag1,flag2;
+public:
+	void accept();
+	void display();
+	void add();
 };
 
-int Sorter::pos()
+void Poly::accept()
 {
-    int pos;
-    for(i=0;i<size-1;i++)
-    {
-        if(ar[i] > ar[i+1])
-        {
-         pos = i;
-         break;
-        }
-    }
-    return pos;
+	cout<<"Enter total terms for 1st and 2nd polynomial: ";
+	cin>>size>>size2;
+	if(size >= size2)
+		limit = size;
+	else
+		limit = size2;
+	for(i=size-1; i>=0; i--)
+	{
+		cout<<"Enter term for first having exponent "<<i<<": ";
+		cin>>a[i];
+		if(a[i]!=0)
+			flag1 = 1;
+	}
+	cout<<"\n----------------------------------------------------\n";
+	for(i=size2-1; i>=0; i--)
+	{
+		cout<<"Enter term for second having exponent "<<i<<": ";
+		cin>>b[i];
+		if(b[i]!=0)
+			flag2 = 1;
+	}
 }
 
-void Sorter::sort()
+
+void Poly::add()
 {
-    int p = pos();
-    for(i=p;i<size;i++)
-    {
-        for(j=i;j>0;j--)
-        {
-            if(ar[j]<ar[j-1])
-            {
-                temp = ar[j];
-                ar[j] = ar[j-1];
-                ar[j-1] = temp;
-            }
-        }
-    }
+	for(i=0; i<limit; i++)
+		sum[i] = a[i] + b[i];
 }
 
-void Sorter::accept()
+void Poly::display()
 {
-    cout<<"Enter size of array: ";
-    cin>>size;
-    for(i=0;i<size;i++)
-    {
-        cout<<"Enter here: ";
-        cin>>ar[i];
-    }
+	if(flag1 == 1||flag2 == 1)
+	{
+		cout<<"\nPolynomial sum: ";
+		for(i=limit-1; i>=0; i--)
+		{
+			if(i == 0&&sum[i] != 0)
+				cout<<sum[i];
+			else
+			{
+				if(sum[i] != 0)
+					cout<<sum[i]<<"x";
+				if(i!=1&&sum[i] != 0)
+					cout<<"^"<<i;
+				if(sum[i-1]!=0&&sum[i] != 0)
+					cout<<" + ";
+			}
+		}
+	}
+	else
+		cout<<"Polynomial sum is: 0";
 }
-
-void Sorter::display()
-{
-    for(i=0;i<size;i++)
-     cout<<ar[i]<<'\t';
-}
-
 
 int main()
 {
-    Sorter obj;
-    obj.accept();
-    obj.sort();
-    obj.display();
-    return 0;
+	Poly obj;
+	obj.accept();
+	obj.add();
+	obj.display();
+	return 0;
 }
