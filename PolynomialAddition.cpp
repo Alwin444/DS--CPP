@@ -53,6 +53,7 @@ void Poly::display()
 	int sign_flag = 0;
 	if(flag1 == 1 || flag2 == 1)
 	{
+		cout<<"\nSum of polynomial is: \n";
 		for(i=limit-1; i>=0; i--)
 		{
 			if(sum[i] != 0)
@@ -60,11 +61,26 @@ void Poly::display()
 				if(sign_flag == 1 && sum[i] > 0)
 					cout<<" + ";
 				if(i == 0)
-					cout<<sum[i];
+				{
+					if(sum[i] > 0)
+						cout<<sum[i];
+					else
+						cout<<' '<<sum[i];
+				}
 				if(i == 1)
-					cout<<sum[i]<<'x';
+				{
+					if(sum[i] > 0)
+						cout<<sum[i]<<'x';
+					else
+						cout<<' '<<sum[i]<<'x';
+				}
 				if(i > 1)
-					cout<<sum[i]<<"x^"<<i;
+				{
+					if(sum[i] > 0)
+						cout<<sum[i]<<"x^"<<i;
+					else
+						cout<<' '<<sum[i]<<"x^"<<i;
+				}
 				sign_flag = 1;
 			}
 		}
