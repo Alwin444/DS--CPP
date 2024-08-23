@@ -1,4 +1,7 @@
-#include <iostream>
+//Display function bug detected
+//Code under Maintenance
+
+/*#include <iostream>
 using namespace std;
 class Poly
 {
@@ -72,4 +75,6 @@ int main()
 	obj.add();
 	obj.display();
 	return 0;
-}
+}*/
+//Display function bug detected
+//Code under Maintenance
