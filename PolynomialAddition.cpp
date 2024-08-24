@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 class Poly
 {
@@ -65,21 +66,36 @@ void Poly::display()
 					if(sum[i] > 0)
 						cout<<sum[i];
 					else
-						cout<<' '<<sum[i];
+					{
+					    sum[i] = abs(sum[i]);
+					    cout<<" - "<<sum[i];
+					}
 				}
 				if(i == 1)
 				{
 					if(sum[i] > 0)
 						cout<<sum[i]<<'x';
 					else
-						cout<<' '<<sum[i]<<'x';
+				    {
+				        sum[i] = abs(sum[i]);
+					    cout<<" - "<<sum[i]<<'x';
+				    }
 				}
 				if(i > 1)
 				{
 					if(sum[i] > 0)
 						cout<<sum[i]<<"x^"<<i;
 					else
-						cout<<' '<<sum[i]<<"x^"<<i;
+					{
+						if(sign_flag == 1)
+						{
+						    sum[i] = abs(sum[i]);
+						    cout<<" - "<<sum[i]<<"x^"<<i;
+						}
+						else
+						 cout<<sum[i]<<"x^"<<i;
+					}
+						
 				}
 				sign_flag = 1;
 			}
