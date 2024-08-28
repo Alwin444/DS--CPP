@@ -1,5 +1,4 @@
 #include <iostream>
-void menu(Stack_class &);
 using namespace std;
 class Stack_class
 {
@@ -11,6 +10,7 @@ class Stack_class
  void pop();
  void display();
 };
+void menu(Stack_class &);
 
 
 //Accept function definition: Class- Stack_class
@@ -25,22 +25,24 @@ void Stack_class::accept()
 //Push function definition: Class- Stack_class
 void Stack_class::push()
 {
+ cout<<'\n';
  char confirm; //Variables: confirm(To confirm to do push operation)
  while(1)
  {
     tos++;
-    if(tos >= 12)
+    if(tos >= size)
     {
-     cout<<"Stack overflow";
+     cout<<"Stack overflow\n";
      break;
     }
     else
     {
      cout<<"Enter the element here: ";
      cin>>stack[tos];
-     cout<<"Do you want push again(y/n): ";
+     cout<<"Element "<<stack[tos]<<" pushed into stack";
+     cout<<"\nDo you want push again(y/n): ";
      cin>>confirm;
-     if(confirm != 'y' || confirm != 'Y')
+     if(confirm != 'y'  && confirm != 'Y')
       break;
     }
  }
@@ -51,21 +53,22 @@ void Stack_class::push()
 //Pop function definition: Class- Stack_class
 void Stack_class::pop()
 {
+ cout<<'\n';
  char confirm; //Variables: confirm(To confirm to do push operation)
  while(1)
  {
     if(tos < 0)
     {
-     cout<<"Stack underflow";
+     cout<<"Stack underflow\n";
      break;
     }
     else
     {
-     stack[tos] = 0;
+     cout<<"Element "<<stack[tos]<<" poped from stack";
      tos--;
-     cout<<"Do you want pop again(y/n): ";
+     cout<<"\nDo you want pop again(y/n): ";
      cin>>confirm;
-     if(confirm != 'y' || confirm != 'Y')
+     if(confirm != 'y'  && confirm != 'Y')
       break;
     }
  }
@@ -76,9 +79,17 @@ void Stack_class::pop()
 //Display function definition: Class- Stack_class
 void Stack_class::display()
 {
- int i;
- for(i=0;i<=tos;i++)
-  cout<<stack[tos]<<endl;
+    int i;
+    cout<<"\nStack elements:  ";
+    for(i=0;i<=tos;i++)
+     cout<<stack[i]<<'\t';
+    cout<<"\nTop of the stack element: ";
+    if(tos >= size)
+     cout<<stack[size];
+    else if(tos < 0)
+     cout<<"No element found";
+    else
+     cout<<stack[tos];
 }
 
 
@@ -91,9 +102,9 @@ int main()
   do
   {
     menu(obj);
-    cout<<"Do you want to perform operation again(y/n): ";
+    cout<<"\n\nReturn to main menu(y/n): ";
     cin>>confirm;
-  }while(confirm=='y'||confirm=='Y');     
+  }while(confirm == 'y'||confirm == 'Y');     
   return 0;
 }
 
@@ -101,21 +112,20 @@ int main()
 //Menu function Definition
 void menu(Stack_class &obj)
 {
-  int option;
+  char option;
 
-  cout<<"---------------------------------Main Menu---------------------------------\n";
+  cout<<"\n---------------------------------Main Menu---------------------------------\n";
   cout<<"1.)Perform push operation\n2.)Perform pop operation\n3.)Display elements\n";
   cout<<"Input the option: ";
   cin>>option;
   switch(option)
   {
-   case 1: obj.push();
+   case '1': obj.push();
            break;
-   case 2: obj.pop();
+   case '2': obj.pop();
            break;
-   case 3: obj.display();
+   case '3': obj.display();
             break;
-   default: cout<<"Aborting operation......"
+   default: cout<<"Invalid input";
   }
 }
-   
