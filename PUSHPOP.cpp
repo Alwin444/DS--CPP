@@ -33,6 +33,7 @@ void Stack_class::push()
     if(tos >= size)
     {
      cout<<"Stack overflow\n";
+     tos--;
      break;
     }
     else
