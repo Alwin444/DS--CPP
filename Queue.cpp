@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-/*class Queue_class
+class Queue_class
 {
  int queue[12];//Queue
  int rear,front,size;//rear(points rear element) , front(points front element) , size(capacity of queue)
@@ -42,6 +42,7 @@ void Queue_class::insertion()
     if(rear >= size)
     {
      cout<<"\nQueue overflow";
+     rear--;
      break;
     }
     else
@@ -104,7 +105,7 @@ void Queue_class::display()
      cout<<"\nQueue elements not found";
     else
     {
-     cout<<"Queue elements are: ";
+     cout<<"\nQueue elements are: ";
      for(i=front;i<=rear;i++)
       cout<<queue[i]<<'\t';
      cout<<"\nRear element is "<<queue[rear];
@@ -148,11 +149,4 @@ void menu(Queue_class &obj)
             break;
    default: cout<<"Invalid input";
   }
-}
-
-*/
-int main()
-{
-  cout<<Under maintenance;
-   return 0;
 }
