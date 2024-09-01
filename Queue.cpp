@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-class Queue_class
+/*class Queue_class
 {
  int queue[12];//Queue
  int rear,front,size;//rear(points rear element) , front(points front element) , size(capacity of queue)
@@ -150,3 +150,9 @@ void menu(Queue_class &obj)
   }
 }
 
+*/
+int main()
+{
+  cout<<Under maintenance;
+   return 0;
+}
