@@ -1,3 +1,6 @@
+//Under Research
+
+/*
 #include <iostream>
 using namespace std;
 struct n
@@ -67,4 +70,4 @@ void LinkedList()
         delete current;
         current = first;
     }
-}
+}*/
