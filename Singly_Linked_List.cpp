@@ -43,7 +43,7 @@ void Call::accept()
         }
         cout<<"Do you want to enter the value again(y/n): ";
         cin>>choice;
-     }while(choice == 'Y' || choice = 'y');
+     }while(choice == 'Y' || choice == 'y');
 }
 
 
