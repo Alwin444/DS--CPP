@@ -63,7 +63,7 @@ void Call::display()
 //Deallocation function
 Call::~Call()
 {
-    current = start;
+    current = first;
     while(current != nullptr)
     {
         first = first->ptr;
