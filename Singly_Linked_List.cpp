@@ -38,7 +38,7 @@ void Call::accept()
          first = current = list;
         else
         {
-          curent->ptr = list;
+          current->ptr = list;
           current = list;
         }
         cout<<"Do you want to enter the value again(y/n): ";
