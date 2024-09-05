@@ -50,7 +50,7 @@ void Call::accept()
 //Display function
 void Call::display()
 {
-     current = start;
+     current = first;
      cout<<"Elements in linked list: \n";
      while(current != nullptr)
      {
