@@ -51,7 +51,7 @@ void Call::accept()
 void Call::display()
 {
      current = first;
-     cout<<"Elements in linked list: \n";
+     cout<<"\nElements in linked list: \n";
      while(current != nullptr)
      {
          cout<<current->data<<endl;
@@ -61,7 +61,7 @@ void Call::display()
 
 
 //Deallocation function
-~Call::Call()
+Call::~Call()
 {
     current = start;
     while(current != nullptr)
