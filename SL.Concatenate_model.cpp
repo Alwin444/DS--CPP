@@ -1,5 +1,5 @@
 // Program Name: Concatenation of string using Linked List
-// Status: Model,Unstable
+// Status: Model,Stable
 
 #include <iostream>
 using namespace std;
