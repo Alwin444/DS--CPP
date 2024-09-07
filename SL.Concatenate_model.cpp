@@ -25,8 +25,9 @@ int main()
 {
  char choice;
  node *first,*current,*list;
- node *first2,*current2,*list2;
- first = first2 = nullptr;
+ node2 *first2,*current2,*list2;
+ first = nullptr;
+ first2 = nullptr;
 
  //Accepts character for first string
  do
@@ -35,7 +36,7 @@ int main()
   cout<<"Enter the character: ";
   cin>>list->data;
   list->ptr = nullptr;
-  if(first = nullptr)
+  if(first == nullptr)
    first = current = list;
   else
   {
@@ -55,7 +56,7 @@ int main()
   cout<<"Enter the character: ";
   cin>>list2->data2;
   list2->ptr2 = nullptr;
-  if(first2 = nullptr)
+  if(first2 == nullptr)
    first2 = current2 = list2;
   else
   {
@@ -71,8 +72,10 @@ int main()
  //To attach Linked lists node & node2 for concatenation
  while(current2 != nullptr)
  {
-  current->ptr = current2;
-  current = current2;
+  list = new node;
+  current->ptr = list;
+  current = list;
+  list->data = current2->data2;
   current2 = current2->ptr2;
  }
 
@@ -81,7 +84,7 @@ int main()
  //To diplay concatenated string(Without space)
  while(current != nullptr)
  {
-  cout<<current->data<<endl;
+  cout<<current->data;
   current = current->ptr;
  }
 
@@ -103,4 +106,3 @@ int main()
  }
  return 0;
 }
- 
