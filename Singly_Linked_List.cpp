@@ -129,6 +129,8 @@ void Operation::del_beg()
    temp = first;
    first = first->ptr;
    delete temp;
+   if(count == 1)
+    first = nullptr;
    count--;
    cout<<"Do you want to perform again(y/n): ";
    cin>>choice;
@@ -153,6 +155,8 @@ void Operation::del_last()
    delete current;
    current = temp;
    current->ptr = nullptr;
+   if(count == 1)
+    first = nullptr;
    count--;
    cout<<"Do you want to perform again(y/n): ";
    cin>>choice;
@@ -183,6 +187,8 @@ void Operation::del_spe()
    del = temp->ptr;
    temp->ptr = del->ptr;
    delete del;
+   if(count == 1)
+    first = nullptr;
    count--;
    cout<<"Do you want to perform again(y/n): ";
    cin>>choice;
