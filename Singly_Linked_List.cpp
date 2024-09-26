@@ -1,83 +1,117 @@
+//Under Devolopment
+
 #include <iostream>
 using namespace std;
 
 
-//Structure for Linked_List -Singly
-struct n
+struct NODE
 {
-    int data;         //Variables: data-(to store values) , ptr-(pointer to point address) 
-    struct n *ptr;
+ int data;
+ struct NODE *ptr;
+}
+typedef struct NODE node;
+
+
+class Operation
+{
+ int count = 0;
+ node *list,*first,*current;
+ first = nullptr;
+ public:
+ void ins_beg();
+ void ins_last();
+ void ins_spe();
+ void del_beg();
+ void del_last();
+ void del_spe();
+ void display();
+ ~Operation();
 };
-typedef struct n node;
 
 
-//Class 'Call' to perform Linked List operation
-class Call
+void Operation::ins_beg()
 {
-    node *first,*current,*list;        //Variables:  first(Points to first node) , current(Points to node has NULL in link part) , list(For the creation of nodes)
-    public:
-    void accept();
-    void display();
-    ~Call();
-};
-
-
-//Accept function
-void Call::accept()
-{
-    char choice;
-    first = nullptr;
-    do
-    {
-        list = new node;
-        cout<<"Enter the value: ";
-        cin>>list->data;
-        list->ptr = nullptr;
-        list->ptr = nullptr;
-        if(first == nullptr)
-         first = current = list;
-        else
-        {
-          current->ptr = list;
-          current = list;
-        }
-        cout<<"Do you want to enter the value again(y/n): ";
-        cin>>choice;
-     }while(choice == 'Y' || choice == 'y');
+ char choice;
+ do
+ {
+  count++;
+  list = new node;
+  cout<<"Enter the number: ";
+  cin>>list->data;
+  list->ptr = nullptr;
+  if(first == nullptr)
+   first = current = list;
+  else
+  {
+   list->ptr = first;
+   first = list;
+  }
+  cout<<"Do you want to enter again(y/n): ";
+  cin>>choice;
+ }while(choice == 'Y' || choice == 'y');
 }
 
 
-//Display function
-void Call::display()
+void Operation::ins_last()
 {
-     current = first;
-     cout<<"\nElements in linked list: \n";
-     while(current != nullptr)
-     {
-         cout<<current->data<<endl;
-         current = current->ptr;
-     }
+ char choice;
+ do
+ {
+  count++;
+  list = new node;
+  cout<<"Enter the number: ";
+  cin>>list->data;
+  list->ptr = nullptr;
+  if(first == nullptr)
+   first = current = list;
+  else
+  {
+   current->ptr = list;
+   current = list;
+  }
+  cout<<"\nDo you want to enter again(y/n): ";
+  cin>>choice;
+ }while(choice == 'Y' || choice == 'y');
 }
 
 
-//Deallocation function
-Call::~Call()
+void Operation::ins_spe()
 {
+ int pos,dup_count = 1;
+ node *temp;
+ if(count<1)
+  cout<<"Not sufficient nodes to perform this";
+ else
+ {
+  cout<<"Enter the position to be inserted: ";
+  cin>>pos;
+  if(pos<1||pos>count)
+   cout<<"Only "<<count<<" nodes are present enter valid number";
+  else
+  {
+   do
+   {
+    count++;
+    list = new node;
+    cout<<"Enter the data: ";
+    cin>>list->data;
+    list->ptr = nullptr;
     current = first;
-    while(current != nullptr)
-    {
-        first = first->ptr;
-        delete current;
-        current = first;
+    while(dup_count < pos-1)
+    {  
+     current = current->ptr;
+     dup_count++;
     }
-}
-
-
-//Main function to execute
-int main()
-{
-    Call obj;
-    obj.accept();
-    obj.display();
-    return 0;
-}
+    temp = current->ptr;
+    current->ptr = list;
+    list->ptr = temp;
+    current = current->ptr;
+    dup_count = 1;
+    while(current->ptr = nullptr)
+     current = current->ptr;
+    cout<<"Do you want to perform again(y/n): ";
+   }while(choice == 'Y' || choice == 'y');
+  }
+  
+ 
+ 
