@@ -112,6 +112,91 @@ void Operation::ins_spe()
     cout<<"Do you want to perform again(y/n): ";
    }while(choice == 'Y' || choice == 'y');
   }
+ }
+}
+
+
+void Operation::del_beg()
+{
+ char choice;
+ node *temp = nullptr;
+ do
+ {
+  if(count<1)
+   cout<<"Not enough nodes to perform operation";
+  else
+  {
+   temp = first;
+   first = first->ptr;
+   delete temp;
+   count--;
+   cout<<"Do you want to perform again(y/n): ";
+   cin>>choice;
+  }
+ }while(choice == 'y' || choice == 'Y');
+}
+
+
+void Operation::del_last()
+{
+ char choice;
+ node *temp = nullptr;
+ do
+ {
+  if(count<1)
+   cout<<"No enough nodes to perform operation";
+  else
+  {
+   temp = first;
+   while(temp->ptr = current)
+    temp = temp->ptr;
+   delete current;
+   current = temp;
+   current->ptr = nullptr;
+   count--;
+   cout<<"Do you want to perform again(y/n): ";
+   cin>>choice;
+  }
+ }while(choice == 'Y' || choice == 'y');
+}
+
+
+void Operation::del_spe()
+{
+ char choice;
+ node *temp,*del;
+ int pos,dup_count = 2;
+ do
+ {
+ if(count<1)
+   cout<<"No enough nodes to perform operation";
+ else
+ {
+  cout<<"Enter the position to delete: ";
+  cin>>pos;
+  del = first;
+  while(dup_count <= pos-1)
+  {
+   temp = temp->ptr;
+   dup_count++;
+  }
+  del = temp->ptr;
+  temp->ptr = del->ptr;
+  delete del;
+  count--;
+  cout<<"Do you want to perform again(y/n): ";
+  cin>>choice;
+ }
+}while(choice == 'Y' || choice == 'y');
+  
+  
+ 
+ 
+
+
+  
+
+ 
   
  
  
