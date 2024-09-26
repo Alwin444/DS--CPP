@@ -16,8 +16,9 @@ class Operation
 {
  int count = 0;
  node *list,*first,*current;
- first = nullptr;
  public:
+ Operation()
+ {first = nullptr;}
  void ins_beg();
  void ins_last();
  void ins_spe();
