@@ -107,7 +107,7 @@ void Operation::ins_spe()
     list->ptr = temp;
     current = current->ptr;
     dup_count = 1;
-    while(current->ptr = nullptr)
+    while(current->ptr != nullptr)
      current = current->ptr;
     cout<<"Do you want to perform again(y/n): ";
    }while(choice == 'Y' || choice == 'y');
@@ -197,8 +197,8 @@ void Operation::del_spe()
     cout<<"Do you want to perform again(y/n): ";
     cin>>choice;
    }
-  }while(choice == 'Y' || choice == 'y');
- }
+  }
+ }while(choice == 'Y' || choice == 'y');
 }
   
   
