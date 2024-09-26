@@ -146,11 +146,11 @@ void Operation::del_last()
  do
  {
   if(count<1)
-   cout<<"No enough nodes to perform operation";
+   cout<<"Not enough nodes to perform operation";
   else
   {
    temp = first;
-   while(temp->ptr = current)
+   while(temp->ptr != current)
     temp = temp->ptr;
    delete current;
    current = temp;
@@ -173,27 +173,32 @@ void Operation::del_spe()
  do
  {
   if(count<1)
-   cout<<"No enough nodes to perform operation";
+   cout<<"Not enough nodes to perform operation";
   else
   {
    cout<<"Enter the position to delete: ";
    cin>>pos;
-   temp = first;
-   while(dup_count <= pos-1)
+   if(pos<1 || pos>count)
+    cout<<"Enter valid number";
+   else
    {
-    temp = temp->ptr;
-    dup_count++;
+    temp = first;
+    while(dup_count <= pos-1)
+    {
+     temp = temp->ptr;
+     dup_count++;
+    }
+    del = temp->ptr;
+    temp->ptr = del->ptr;
+    delete del;
+    if(count == 1)
+     first = nullptr;
+    count--;
+    cout<<"Do you want to perform again(y/n): ";
+    cin>>choice;
    }
-   del = temp->ptr;
-   temp->ptr = del->ptr;
-   delete del;
-   if(count == 1)
-    first = nullptr;
-   count--;
-   cout<<"Do you want to perform again(y/n): ";
-   cin>>choice;
-  }
- }while(choice == 'Y' || choice == 'y');
+  }while(choice == 'Y' || choice == 'y');
+ }
 }
   
   
