@@ -168,26 +168,27 @@ void Operation::del_spe()
  int pos,dup_count = 2;
  do
  {
- if(count<1)
+  if(count<1)
    cout<<"No enough nodes to perform operation";
- else
- {
-  cout<<"Enter the position to delete: ";
-  cin>>pos;
-  del = first;
-  while(dup_count <= pos-1)
+  else
   {
-   temp = temp->ptr;
-   dup_count++;
+   cout<<"Enter the position to delete: ";
+   cin>>pos;
+   temp = first;
+   while(dup_count <= pos-1)
+   {
+    temp = temp->ptr;
+    dup_count++;
+   }
+   del = temp->ptr;
+   temp->ptr = del->ptr;
+   delete del;
+   count--;
+   cout<<"Do you want to perform again(y/n): ";
+   cin>>choice;
   }
-  del = temp->ptr;
-  temp->ptr = del->ptr;
-  delete del;
-  count--;
-  cout<<"Do you want to perform again(y/n): ";
-  cin>>choice;
- }
-}while(choice == 'Y' || choice == 'y');
+ }while(choice == 'Y' || choice == 'y');
+}
   
   
  
