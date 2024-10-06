@@ -1,6 +1,3 @@
-//Under research
-
-/*
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
@@ -62,5 +59,3 @@ int prec(char i)
         default: return -1;
     }
 }
-
-*/
