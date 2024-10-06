@@ -100,8 +100,8 @@ void Swaper::swap()
               pre1->ptr = fix2;
              else
               first = fix2;
-             if (pre2 != nullptr)
-              pre2->ptr = fix1;
+                
+             pre2->ptr = fix1;
              temp = fix1->ptr;
              fix1->ptr = fix2->ptr;
              fix2->ptr = temp;
