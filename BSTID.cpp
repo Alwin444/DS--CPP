@@ -22,6 +22,9 @@ class Alwin
    void input();//Main function call , last defined
    tree *insert(tree *root,int num); //Main Algorithm , 1st defined
    void display(tree *root); //2nd defined
+   tree *deletion(tree *root,int num); //Main Algorithm to delete
+   tree *min(tree *root);
+   void dinp();
 };
 
 
@@ -73,9 +76,69 @@ void Alwin::input()
 }
 
 
+tree *Alwin::deletion(tree *root,int num)
+{
+    if(root == nullptr)
+    {
+        cout<<"Invalid element";
+        return root;
+    }
+    else if(num > root->data)
+     root->right = deletion(root->right,num);
+    else if(num < root->data)
+     root->left = deletion(root->left,num);
+    else
+    {
+        if(root->right == nullptr)
+        {
+            tree *temp = root->left;
+            delete root;
+            return temp;
+        }
+        if(root->left == nullptr)
+        {
+            tree *temp = root->right;
+            delete root;
+            return temp;
+        }
+        
+        tree *temp = min(root->right);
+        root->data = temp->data;
+        root->right = deletion(root->right,num);
+    }
+    return root;
+}
+
+
+tree *Alwin::min(tree *root)
+{
+    tree *temp = root;
+    while(temp && temp->left != nullptr)
+     temp = temp->left;
+    return temp;
+}
+
+void Alwin::dinp()
+{
+    char choice;
+    int dt;
+    do
+    {
+        cout<<"\n\nEnter the element to delete: ";
+        cin>>dt;
+        root = deletion(root,dt);
+        cout<<"\nDo you want to delete again(y/n): ";
+        cin>>choice;
+    }while(choice == 'y' || choice == 'Y');
+    cout<<"\nElements are:\n";
+    display(root);
+}
+
+
 int main()
 {
    Alwin obj;
    obj.input();
+   obj.dinp();
    return 0;
 }
