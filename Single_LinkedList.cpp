@@ -90,6 +90,15 @@ void Operation::ins_spe()
     cin>>pos;
     if(pos<1||pos>count)
      cout<<"Only "<<count<<" nodes are present enter valid number";
+    if(pos == 1)
+    {
+     count++;
+     list = new node;
+     cout<<"Enter the data: ";
+     cin>>list->data;
+     list->ptr = first;
+     first = list;
+    }
     else
     {
      count++;
