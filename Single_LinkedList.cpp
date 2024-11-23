@@ -208,7 +208,7 @@ void Operation::del_spe()
    else
    {
      temp = first;
-     if(pos = 1)
+     if(pos == 1)
      {
       first = first->ptr;
       delete temp;
